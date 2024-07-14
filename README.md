@@ -1,5 +1,7 @@
 # Shop example with Next.js
 
+This is a simple shop example made with Next.js + Typescript. The app is a simple shop example with a list of products, favorites and a cart, with Login authentication.
+
 ![Shop example](./public/shop-example.png)
 
 ## 🚀 How to run
@@ -10,7 +12,7 @@
 4. Open [http://localhost:3000/login](http://localhost:3000/login) with your browser to see the result.\*
 
 > [!NOTE]
-> \* You can also access the dashboard directly by going to [http://localhost:3000/dashboard](http://localhost:3000/dashboard) or [http://localhost:3000](http://localhost:3000) if you are already logged in. If not, you will be redirected to the login screen.
+> \*You can also access the dashboard directly by going to [http://localhost:3000/dashboard](http://localhost:3000/dashboard) or [http://localhost:3000](http://localhost:3000) if you are already logged in. If not, you will be redirected to the login screen.
 
 ---
 
@@ -41,7 +43,7 @@ Here is summarized the coverage report of the tests suites:
 
 | % Stmts | % Branch | % Funcs | % Lines |
 | ------- | -------- | ------- | ------- |
-| 93.35   | 94.94    | 70.73   | 93.35   |
+| 93.38   | 94.94    | 70.73   | 93.38   |
 
 - Test Suites: 14 passed, 14 total
 - Tests: 57 passed, 57 total
