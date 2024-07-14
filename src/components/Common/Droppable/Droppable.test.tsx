@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 import Droppable from "./Droppable";
 
 describe("Droppable", () => {
-  it("renders children correctly", () => {
+  it("Should render children correctly", () => {
     const { getByText } = render(
       <Droppable id="test-droppable">
         <div>Test Children</div>

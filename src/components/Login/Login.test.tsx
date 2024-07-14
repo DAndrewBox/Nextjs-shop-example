@@ -22,7 +22,7 @@ describe("Login", () => {
     jest.clearAllMocks();
   });
 
-  it("renders the login form correctly", () => {
+  it("Should render the login form correctly", () => {
     render(
       <ReduxProvider>
         <Login showAlert={showAlertMock} />
@@ -35,7 +35,7 @@ describe("Login", () => {
     expect(screen.getByTestId("txt-disclaimer")).toBeInTheDocument();
   });
 
-  it("handles form submission correctly", async () => {
+  it("Should handle form submission correctly", async () => {
     const loginData = { email: "test@example.com", password: "password" };
     const loginResponse = { data: { user: {} } };
 
@@ -66,7 +66,7 @@ describe("Login", () => {
     expect(showAlertMock).not.toHaveBeenCalled();
   });
 
-  it("handles form submission with invalid credentials", async () => {
+  it("Should handle form submission with invalid credentials", async () => {
     const loginData = { email: "test@example.com", password: "password" };
     const loginResponse = { data: null };
 
@@ -97,7 +97,7 @@ describe("Login", () => {
     expect(pushMock).not.toHaveBeenCalled();
   });
 
-  it("handles form submission with error", async () => {
+  it("Should handle form submission with error", async () => {
     const loginData = { email: "test@example.com", password: "password" };
     const errorMessage = "An error occurred";
 

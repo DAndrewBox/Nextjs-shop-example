@@ -10,7 +10,7 @@ import { addToCart, removeFromCart } from "@store/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import Favorites from "../Favorites/Favorites";
 import { addToFavorites, removeFromFavorites } from "@store/slices/favoritesSlice";
-import { FavoriteItems } from "@/types/favorites";
+import { FavoriteItemsList } from "@/types/favorites";
 import { DndContext, DragOverlay } from "@dnd-kit/core";
 import { ProductImage } from "../Products/Products.styles";
 import { ALERT_MESSAGES, ALERT_TYPE } from "@/types/alert";
@@ -124,7 +124,7 @@ export const Dashboard = (props: DashboardProps) => {
 
     if (
       !list.find(
-        (favoriteList: FavoriteItems) => favoriteList.userId === userId && favoriteList.items.includes(productId)
+        (favoriteList: FavoriteItemsList) => favoriteList.userId === userId && favoriteList.items.includes(productId)
       )
     ) {
       dispatch(addToFavorites({ userId, productId }));

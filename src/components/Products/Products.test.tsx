@@ -20,26 +20,26 @@ describe("Products", () => {
     { ...defaultProduct, id: 3, title: "Product 3", image: "/product3.jpg" },
   ];
 
-  it("renders the products correctly", () => {
+  it("Should render the products correctly", () => {
     render(<Products products={products} onAddToCart={() => {}} searchQuery="" onAddToFavorite={() => {}} />);
 
-    // Assert that the product containers are rendered
+    // Expect that the product containers are rendered
     const productContainers = screen.getAllByTestId(/^products-\d+$/);
     expect(productContainers).toHaveLength(products.length);
 
-    // Assert that the product names are rendered correctly
+    // Expect that the product names are rendered correctly
     const productNames = screen.getAllByTestId(/^products-name-\d+$/);
     expect(productNames).toHaveLength(products.length);
     expect(productNames[0]).toHaveTextContent("Product 1");
     expect(productNames[1]).toHaveTextContent("Product 2");
     expect(productNames[2]).toHaveTextContent("Product 3");
 
-    // Assert that the "Add to Cart" buttons are rendered
+    // Expect that the "Add to Cart" buttons are rendered
     const addToCartButtons = screen.getAllByTestId(/^btn-product-\d+$/);
     expect(addToCartButtons).toHaveLength(products.length);
   });
 
-  it("triggers the onAddToCart callback when the 'Add to Cart' button is clicked", () => {
+  it("Should trigger the onAddToCart callback when the 'Add to Cart' button is clicked", () => {
     const onAddToCart = jest.fn();
     render(<Products products={products} onAddToCart={onAddToCart} searchQuery="" onAddToFavorite={() => {}} />);
 
@@ -47,11 +47,11 @@ describe("Products", () => {
     const addToCartButton = screen.getByTestId("btn-product-1");
     fireEvent.click(addToCartButton);
 
-    // Assert that the onAddToCart callback is called with the correct product
+    // Expect that the onAddToCart callback is called with the correct product
     expect(onAddToCart).toHaveBeenCalledWith(products[0]);
   });
 
-  it("trims the product name if it exceeds 25 characters", () => {
+  it("Should trim the product name if it exceeds 25 characters", () => {
     const longProductName = "This is a very long product name that exceeds 25 characters";
     const productsWithLongNames: Product[] = [
       { ...defaultProduct, id: 1, title: longProductName, image: "/product1.jpg" },
@@ -61,15 +61,15 @@ describe("Products", () => {
       <Products products={productsWithLongNames} onAddToCart={() => {}} searchQuery="" onAddToFavorite={() => {}} />
     );
 
-    // Assert that the product name is trimmed
+    // Expect that the product name is trimmed
     const productName = screen.getByTestId("products-name-0");
     expect(productName).toHaveTextContent("This is a very long produ...");
   });
 
-  it("renders the 'No products found' message when there are no products and a search query is provided", () => {
+  it("Should render the 'No products found' message when there are no products and a search query is provided", () => {
     render(<Products products={[]} onAddToCart={() => {}} searchQuery="Product 1" onAddToFavorite={() => {}} />);
 
-    // Assert that the "No products found" message is rendered
+    // Expect that the "No products found" message is rendered
     const notFoundMessage = screen.getByText('No products found with name "Product 1"');
     expect(notFoundMessage).toBeInTheDocument();
   });
@@ -83,7 +83,7 @@ describe("Products", () => {
 
     render(<Products products={productsUnsorted} onAddToCart={() => {}} searchQuery="" onAddToFavorite={() => {}} />);
 
-    // Assert that the products are sorted by title
+    // Expect that the products are sorted by title
     const productNames = screen.getAllByTestId(/^products-name-\d+$/);
     expect(productNames).toHaveLength(productsUnsorted.length);
     expect(productNames[0]).toHaveTextContent("Product A");

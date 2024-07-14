@@ -14,7 +14,7 @@ describe("Dashboard Utils", () => {
   };
 
   describe("handleDragStart", () => {
-    it("should set active drag product when active is truthy", () => {
+    it("Should set active drag product when active is truthy", () => {
       const allProducts = [{ ...defaultProduct, id: 1, title: "Product 1" }];
       const setActiveDragProduct = jest.fn();
       const active = { id: "drag-1" };
@@ -24,8 +24,8 @@ describe("Dashboard Utils", () => {
       expect(setActiveDragProduct).toHaveBeenCalledWith(allProducts[0]);
     });
 
-    it("should not set active drag product when active is falsy", () => {
-      const allProducts = [{ id: 1, title: "Product 1" }];
+    it("Should not set active drag product when active is falsy", () => {
+      const allProducts = [{ ...defaultProduct, id: 1, title: "Product 1" }];
       const setActiveDragProduct = jest.fn();
       const active = null;
 
@@ -36,7 +36,7 @@ describe("Dashboard Utils", () => {
   });
 
   describe("handleDragEnd", () => {
-    it("should handle open modal when active drag product is favorite and dropped outside favorite list and over is falsy", () => {
+    it("Should handle open modal when active drag product is favorite and dropped outside favorite list and over is falsy", () => {
       const activeDragProduct = { ...defaultProduct, id: 1, title: "Product 1" };
       const handleOpenModal = jest.fn();
       const handleAddToFavorites = jest.fn();
@@ -63,7 +63,7 @@ describe("Dashboard Utils", () => {
       expect(handleRemoveFromCart).not.toHaveBeenCalled();
     });
 
-    it("should handle remove from cart when active drag product is dropped outside and over is falsy and active id includes 'cart'", () => {
+    it("Should handle remove from cart when active drag product is dropped outside and over is falsy and active id includes 'cart'", () => {
       const activeDragProduct = { ...defaultProduct, id: 1, title: "Product 1" };
       const handleOpenModal = jest.fn();
       const handleAddToFavorites = jest.fn();
@@ -88,7 +88,7 @@ describe("Dashboard Utils", () => {
       expect(setActiveDragProduct).toHaveBeenCalledWith(null);
     });
 
-    it("should handle add to favorites when active drag product is dropped on favorites drop zone", () => {
+    it("Should handle add to favorites when active drag product is dropped on favorites drop zone", () => {
       const activeDragProduct = { ...defaultProduct, id: 1, title: "Product 1" };
       const handleOpenModal = jest.fn();
       const handleAddToFavorites = jest.fn();
@@ -116,7 +116,7 @@ describe("Dashboard Utils", () => {
       expect(setActiveDragProduct).toHaveBeenCalledWith(null);
     });
 
-    it("should handle add to cart when active drag product is dropped on cart drop zone", () => {
+    it("Should handle add to cart when active drag product is dropped on cart drop zone", () => {
       const activeDragProduct = { ...defaultProduct, id: 1, title: "Product 1" };
       const handleOpenModal = jest.fn();
       const handleAddToFavorites = jest.fn();
@@ -144,7 +144,7 @@ describe("Dashboard Utils", () => {
       expect(setActiveDragProduct).toHaveBeenCalledWith(null);
     });
 
-    it("should not handle any action when over and active are falsy", () => {
+    it("Should not handle any action when over and active are falsy", () => {
       const activeDragProduct = { ...defaultProduct, id: 1, title: "Product 1" };
       const handleOpenModal = jest.fn();
       const handleAddToFavorites = jest.fn();
@@ -174,7 +174,7 @@ describe("Dashboard Utils", () => {
   });
 
   describe("handleSearch", () => {
-    it("should set search value and set all products when value is empty", () => {
+    it("Should set search value and set all products when value is empty", () => {
       const value = "";
       const allProducts = [{ ...defaultProduct, id: 1, title: "Product 1" }];
       const setSearch = jest.fn();
@@ -186,7 +186,7 @@ describe("Dashboard Utils", () => {
       expect(setProducts).toHaveBeenCalledWith(allProducts);
     });
 
-    it("should set search value and set filtered products when value is not empty", () => {
+    it("Should set search value and set filtered products when value is not empty", () => {
       const value = "product";
       const allProducts: Product[] = [
         { ...defaultProduct, id: 1, title: "Product 1" },

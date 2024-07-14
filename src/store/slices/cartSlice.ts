@@ -1,8 +1,8 @@
-import { CartProduct } from "@/types/products";
+import { CartProductsList } from "@/types/products";
 import { createSlice } from "@reduxjs/toolkit";
 
 interface CartState {
-  carts: CartProduct[];
+  carts: CartProductsList[];
 }
 
 const initialState: CartState = {
@@ -15,7 +15,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       const { userId, productId } = action.payload;
-      const userCart = state.carts.find((cart: CartProduct) => cart.userId === userId);
+      const userCart = state.carts.find((cart: CartProductsList) => cart.userId === userId);
 
       if (userCart) {
         userCart.items.push(productId);
@@ -25,7 +25,7 @@ const cartSlice = createSlice({
     },
     removeFromCart(state, action) {
       const { userId, productId } = action.payload;
-      const userCart = state.carts.findIndex((cart: CartProduct) => cart.userId === userId);
+      const userCart = state.carts.findIndex((cart: CartProductsList) => cart.userId === userId);
 
       if (userCart !== -1) {
         state.carts[userCart].items = state.carts[userCart].items.filter((itemId: number) => itemId !== productId);

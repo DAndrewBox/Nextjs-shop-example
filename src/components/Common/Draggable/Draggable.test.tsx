@@ -5,7 +5,7 @@ import { DndContext } from "@dnd-kit/core";
 import Draggable from "./Draggable";
 
 describe("Draggable", () => {
-  it("renders children", () => {
+  it("Should render children", () => {
     const { getByText } = render(
       <DndContext>
         <Draggable id="test-draggable">

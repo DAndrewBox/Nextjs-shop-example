@@ -77,7 +77,7 @@ describe("Dashboard", () => {
     jest.clearAllMocks();
   });
 
-  it("renders loading content when loadingContent prop is true", () => {
+  it("Should render loading content when loadingContent prop is true", () => {
     render(
       <ReduxProvider>
         <Dashboard {...mockProps} loadingContent={true} />
@@ -86,7 +86,7 @@ describe("Dashboard", () => {
     expect(screen.getByText("Loading content...")).toBeInTheDocument();
   });
 
-  it("renders the dashboard correctly", () => {
+  it("Should render the dashboard correctly", () => {
     render(
       <ReduxProvider>
         <Dashboard {...mockProps} loadingContent={false} />
@@ -101,7 +101,7 @@ describe("Dashboard", () => {
     expect(screen.getByTestId("products-section")).toBeInTheDocument();
   });
 
-  it("handles search correctly", () => {
+  it("Should handle search correctly", () => {
     render(
       <ReduxProvider>
         <Dashboard {...mockProps} loadingContent={false} />
@@ -114,7 +114,7 @@ describe("Dashboard", () => {
     expect(setProductsMock).toHaveBeenCalledTimes(1);
   });
 
-  it("handles logout correctly", () => {
+  it("Should handle logout correctly", () => {
     render(
       <ReduxProvider>
         <Dashboard {...mockProps} loadingContent={false} />

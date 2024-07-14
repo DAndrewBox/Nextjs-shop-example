@@ -1,8 +1,8 @@
-import { FavoriteItems } from "@/types/favorites";
+import { FavoriteItemsList } from "@/types/favorites";
 import { createSlice } from "@reduxjs/toolkit";
 
 interface FavoriteState {
-  list: FavoriteItems[];
+  list: FavoriteItemsList[];
 }
 
 const initialState: FavoriteState = {
@@ -15,7 +15,7 @@ const favSlice = createSlice({
   reducers: {
     addToFavorites(state, action) {
       const { userId, productId } = action.payload;
-      const userFavorites = state.list.find((item: FavoriteItems) => item.userId === userId);
+      const userFavorites = state.list.find((item: FavoriteItemsList) => item.userId === userId);
 
       if (userFavorites) {
         userFavorites.items.push(productId);
@@ -26,7 +26,7 @@ const favSlice = createSlice({
     removeFromFavorites(state, action) {
       const userId = action.payload.userId;
       const productId = action.payload.productId;
-      const userFavorites = state.list.findIndex((list: FavoriteItems) => list.userId === userId);
+      const userFavorites = state.list.findIndex((list: FavoriteItemsList) => list.userId === userId);
 
       if (userFavorites !== -1) {
         state.list[userFavorites].items = state.list[userFavorites].items.filter(

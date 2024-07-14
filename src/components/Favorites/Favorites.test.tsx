@@ -20,42 +20,42 @@ describe("Favorites", () => {
     { ...defaultProduct, id: 3, title: "Product 3", image: "/product3.jpg" },
   ];
 
-  it("renders the favorites correctly", () => {
+  it("Should render the favorites correctly", () => {
     render(<Favorites favorites={favorites} />);
 
     // Should render the title and container
     expect(screen.getByTestId("fav-section")).toBeInTheDocument();
     expect(screen.getByText("Drag and drop to add your favourites")).toBeInTheDocument();
 
-    // Assert that the favorites are rendered correctly
+    // Expect that the favorites are rendered correctly
     expect(screen.getByTestId("fav-item-0")).toBeInTheDocument();
     expect(screen.getByTestId("fav-item-1")).toBeInTheDocument();
     expect(screen.getByTestId("fav-item-2")).toBeInTheDocument();
 
-    // Assert that the extra empty slot is rendered correctly
+    // Expect that the extra empty slot is rendered correctly
 
     expect(screen.getByText("Drag more items here!")).toBeInTheDocument();
     expect(screen.getByTestId("fav-empty-extra")).toBeInTheDocument();
   });
 
-  it("renders the empty slots correctly", () => {
+  it("Should renders the empty slots correctly", () => {
     const emptyFavorites: Product[] = [];
     render(<Favorites favorites={emptyFavorites} />);
 
-    // Assert that the 3 empty slots are rendered correctly
+    // Expect that the 3 empty slots are rendered correctly
     expect(screen.getByTestId("fav-empty-0")).toBeInTheDocument();
     expect(screen.getByTestId("fav-empty-1")).toBeInTheDocument();
     expect(screen.getByTestId("fav-empty-2")).toBeInTheDocument();
   });
 
-  it("renders 1 used slot and 2 empty slots correctly", () => {
+  it("Should renders 1 used slot and 2 empty slots correctly", () => {
     const partialFavorites: Product[] = [favorites[0]];
     render(<Favorites favorites={partialFavorites} />);
 
-    // Assert that the used slot is rendered correctly
+    // Expect that the used slot is rendered correctly
     expect(screen.getByTestId("fav-item-0")).toBeInTheDocument();
 
-    // Assert that the 2 empty slots are rendered correctly
+    // Expect that the 2 empty slots are rendered correctly
     expect(screen.getByTestId("fav-empty-1")).toBeInTheDocument();
     expect(screen.getByTestId("fav-empty-2")).toBeInTheDocument();
   });

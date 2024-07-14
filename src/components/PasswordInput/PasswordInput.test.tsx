@@ -3,13 +3,13 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import PasswordInput from "./PasswordInput";
 
 describe("PasswordInput", () => {
-  it("renders the input field with the correct label", () => {
+  it("Should render the input field with the correct label", () => {
     render(<PasswordInput value="" required={true} onChange={() => {}} dataTestId="password-input" />);
     const inputElement = screen.getByTestId("password-input--input");
     expect(inputElement).toBeInTheDocument();
   });
 
-  it("toggles the password visibility when the toggle button is clicked", () => {
+  it("Should toggle the password visibility when the toggle button is clicked", () => {
     render(<PasswordInput value="" required={true} onChange={() => {}} dataTestId="password-input" />);
     const toggleButton = screen.getByTestId("password-input--toggle");
     const inputElement = screen.getByTestId("password-input--input") as HTMLInputElement;
@@ -30,7 +30,7 @@ describe("PasswordInput", () => {
     expect(inputElement.type).toBe("password");
   });
 
-  it("calls the onChange function when the input value changes", () => {
+  it("Should call the onChange function when the input value changes", () => {
     const onChangeMock = jest.fn();
     render(<PasswordInput value="" required={true} onChange={onChangeMock} dataTestId="password-input" />);
     const inputElement = screen.getByTestId("password-input--input") as HTMLInputElement;

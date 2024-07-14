@@ -19,19 +19,19 @@ describe("Cart", () => {
     { ...defaultProduct, id: 3, title: "Product 3", image: "/product3.jpg" },
   ];
 
-  it("renders the cart section", () => {
+  it("Should render the cart section", () => {
     render(<Cart cartItems={cartItems} onRemoveItem={() => {}} onBuyNow={() => {}} />);
     const cartSection = screen.getByTestId("cart-section");
     expect(cartSection).toBeInTheDocument();
   });
 
-  it("renders the cart title", () => {
+  it("Should render the cart title", () => {
     render(<Cart cartItems={cartItems} onRemoveItem={() => {}} onBuyNow={() => {}} />);
     const cartTitle = screen.getByText("Cart");
     expect(cartTitle).toBeInTheDocument();
   });
 
-  it("renders the cart items", () => {
+  it("Should render the cart items", () => {
     render(<Cart cartItems={cartItems} onRemoveItem={() => {}} onBuyNow={() => {}} />);
     const cartItemsContainer = screen.getByTestId("cart-items-container");
     expect(cartItemsContainer).toBeInTheDocument();
@@ -43,25 +43,25 @@ describe("Cart", () => {
     expect(screen.getByTestId("cart-item-extra")).toBeInTheDocument();
   });
 
-  it("renders the cart empty slots", () => {
+  it("Should render the cart empty slots", () => {
     render(<Cart cartItems={[]} onRemoveItem={() => {}} onBuyNow={() => {}} />);
     const cartEmptySlots = screen.getAllByTestId(/cart-empty-\d+/);
     expect(cartEmptySlots.length).toBeGreaterThan(0);
   });
 
-  it("renders the buy now button", () => {
+  it("Should render the buy now button", () => {
     render(<Cart cartItems={cartItems} onRemoveItem={() => {}} onBuyNow={() => {}} />);
     const buyNowButton = screen.getByText("Buy now");
     expect(buyNowButton).toBeInTheDocument();
   });
 
-  it("disables the buy now button when cart is empty", () => {
+  it("Should disable the buy now button when cart is empty", () => {
     render(<Cart cartItems={[]} onRemoveItem={() => {}} onBuyNow={() => {}} />);
     const buyNowButton = screen.getByText("Buy now");
     expect(buyNowButton).toBeDisabled();
   });
 
-  it("calls onRemoveItem when remove button is clicked", () => {
+  it("Should call onRemoveItem when remove button is clicked", () => {
     const onRemoveItem = jest.fn();
     render(<Cart cartItems={cartItems} onRemoveItem={onRemoveItem} onBuyNow={() => {}} />);
     const removeButtons = screen.getAllByTestId(/cart-item-\d+-remove/);
@@ -71,7 +71,7 @@ describe("Cart", () => {
     expect(onRemoveItem).toHaveBeenCalledTimes(cartItems.length);
   });
 
-  it("calls onBuyNow when buy now button is clicked", () => {
+  it("Should call onBuyNow when buy now button is clicked", () => {
     const onBuyNow = jest.fn();
     render(<Cart cartItems={cartItems} onRemoveItem={() => {}} onBuyNow={onBuyNow} />);
     const buyNowButton = screen.getByText("Buy now");

@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Product, CartProduct } from "@/types/products";
+import { Product, CartProductsList } from "@/types/products";
 import { getReduxStore } from "@/store";
 
+/**
+ * Custom hook to fetch products based on user authentication status.
+ * @returns An object containing the fetched products, cart items, favorite list, loading status, and setter functions.
+ */
 export const useFetchProducts = (userIsAuthenticated: boolean) => {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
@@ -26,7 +30,7 @@ export const useFetchProducts = (userIsAuthenticated: boolean) => {
             const { user } = store.auth;
 
             if (user !== null) {
-              const userCart = carts.find((item: CartProduct) => item.userId === user.id);
+              const userCart = carts.find((item: CartProductsList) => item.userId === user.id);
               if (userCart) {
                 const cartItemsDetailed = userCart.items
                   .map((item: number) => fetchedProducts.find((product: Product) => product.id === item))
@@ -35,7 +39,7 @@ export const useFetchProducts = (userIsAuthenticated: boolean) => {
                 setCartItems(cartItemsDetailed);
               }
 
-              const userFavorites = list.find((item: CartProduct) => item.userId === user.id);
+              const userFavorites = list.find((item: CartProductsList) => item.userId === user.id);
               if (userFavorites) {
                 const favItemsDetailed = userFavorites.items
                   .map((item: number) => fetchedProducts.find((product: Product) => product.id === item))

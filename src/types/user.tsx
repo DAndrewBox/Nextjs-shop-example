@@ -1,3 +1,6 @@
+/*
+  I will not comment this file because it is obtained from a mock API 
+*/
 export interface User {
   address: Address;
   id: number;
