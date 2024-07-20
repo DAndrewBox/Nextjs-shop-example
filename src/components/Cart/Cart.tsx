@@ -11,7 +11,7 @@ import {
   Wrapper,
 } from "./Cart.styles";
 import { Product } from "@/types/products";
-import Trash from "@icons/trash.svg";
+import Trash from "@icons/Trash.svg";
 import Scrollable from "@common/Scrollable/Scrollable";
 import Droppable from "@common/Droppable/Droppable";
 import Draggable from "@common/Draggable/Draggable";
