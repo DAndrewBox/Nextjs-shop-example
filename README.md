@@ -6,6 +6,9 @@ This is a simple shop example made with Next.js + Typescript. The app is a simpl
 
 ## 🚀 How to run
 
+> [!NOTE]
+> If you don't want to run the project locally, you can access the deployed version on Netlify by clicking [here](https://next-shop-example.netlify.app/).
+
 1. Clone the repository
 2. Run `npm install` to install the dependencies
 3. Run `npm run dev` to start the development server
